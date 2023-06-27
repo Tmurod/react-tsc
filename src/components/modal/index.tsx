@@ -29,10 +29,6 @@ const Modal = () => {
     let res = await axios.post("https://fakestoreapi.com/products", productData);
   }
 
-  // const changeHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-  //   setValue(e.target.value)
-  // }
-
   return (
     <form onClick={prevent}>
       <input type="text"
@@ -40,9 +36,6 @@ const Modal = () => {
         placeholder="search..."
         onChange={e => setValue(e.target.value)}
       />
-      {/* {error &&
-        <p>error</p>
-      } */}
       <button type="submit"
         className="py-2 px-4 border btn btn-warning"
       >add</button>

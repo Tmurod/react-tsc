@@ -7,8 +7,11 @@ function App() {
   const [data, setData] = useState([]);
 
   const datApi = async () => {
-    const res = await axios("https://fakestoreapi.com/products");
-    setData(res.data)
+    const res = await fetch("https://fakestoreapi.com/products")
+      .then(resp => resp.json())
+      .then(resp => {
+        setData(resp)
+      })
   }
 
   useEffect(() => {
@@ -17,7 +20,7 @@ function App() {
 
   return (
     <div className="container rounded p-5 d-flex justify-content-center text-center flex-column gap-3">
-      <Modal />
+      <Modal  />
       {
         data.map(val => <Product product={val} key={val} />)
       }
